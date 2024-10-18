@@ -11,7 +11,7 @@ import webbrowser
 
 # Set the appearance mode and default color theme
 ctk.set_appearance_mode("dark")
-ctk.set_default_color_theme("green")
+ctk.set_default_color_theme("dark-blue")
 
 # Constants
 CONFIG_FILE = "dahouse_config.json"
@@ -62,17 +62,9 @@ class UserInfoWindow(ctk.CTk):
         self.info_labels = {}
         fields = [
             "ID",
-            "Tipo de Documento",
-            "Número de Documento",
-            "Nombres",
-            "Apellidos",
             "Correo Electrónico",
             "Nombre de Usuario",
             "Rol",
-            "Banco",
-            "Número de Cuenta",
-            "Habilitado",
-            "Exclusividad",
             "Jornada",
             "Fecha de Registro",
         ]
@@ -140,17 +132,9 @@ class UserInfoWindow(ctk.CTk):
     def update_user_info(self, user_data):
         field_mapping = {
             "ID": "id",
-            "Tipo de Documento": "tipo_documento",
-            "Número de Documento": "numero_documento",
-            "Nombres": "nombres",
-            "Apellidos": "apellidos",
             "Correo Electrónico": "correo_electronico",
             "Nombre de Usuario": "nombre_usuario",
             "Rol": "rol",
-            "Banco": "banco",
-            "Número de Cuenta": "numero_cuenta",
-            "Habilitado": "habilitado",
-            "Exclusividad": "exclusividad",
             "Jornada": "jornada",
             "Fecha de Registro": "fecha_registro",
         }
@@ -235,7 +219,7 @@ class LoginWindow(ctk.CTk):
 
         # Load and resize the logo
         self.logo_image = ctk.CTkImage(
-            Image.open(resource_path("logo.png")), size=(200, 50)
+            Image.open(resource_path("logo.png")), size=(250, 50)
         )
 
         self.create_widgets()
@@ -246,9 +230,9 @@ class LoginWindow(ctk.CTk):
         self.logo_label.pack(pady=(30, 0))
 
         self.title_label = ctk.CTkLabel(
-            self, text="Iniciar sesión", font=("Helvetica", 20, "bold")
+            self, text="Iniciar sesión", font=("Helvetica", 15, "bold")
         )
-        self.title_label.pack(pady=(20, 30))
+        self.title_label.pack(pady=(20))
 
         self.username_entry = ctk.CTkEntry(
             self, placeholder_text="Usuario", width=300, height=40
